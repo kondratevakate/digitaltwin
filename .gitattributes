@@ -1,0 +1,3 @@
+# Strip outputs from Jupyter notebooks on commit (keeps repo clean)
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb

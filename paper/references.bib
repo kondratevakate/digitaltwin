@@ -1,0 +1,224 @@
+% References for Process-Driven Digital Twin paper
+% Extracted and verified from deep-research-report.md
+
+% ============================================================================
+% CAUSAL INFERENCE / UPLIFT MODELING
+% ============================================================================
+
+@article{wager2018estimation,
+  title={Estimation and Inference of Heterogeneous Treatment Effects using Random Forests},
+  author={Wager, Stefan and Athey, Susan},
+  journal={Journal of the American Statistical Association},
+  volume={113},
+  number={523},
+  pages={1228--1242},
+  year={2018},
+  doi={10.1080/01621459.2017.1319839},
+  note={Causal forests for CATE estimation with asymptotic inference}
+}
+
+@article{kunzel2019metalearners,
+  title={Metalearners for estimating heterogeneous treatment effects using machine learning},
+  author={K{\"u}nzel, S{\"o}ren R and Sekhon, Jasjeet S and Bickel, Peter J and Yu, Bin},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={116},
+  number={10},
+  pages={4156--4165},
+  year={2019},
+  doi={10.1073/pnas.1804597116},
+  note={S/T/X meta-learners for heterogeneous treatment effects}
+}
+
+@article{chernozhukov2018double,
+  title={Double/debiased machine learning for treatment and structural parameters},
+  author={Chernozhukov, Victor and Chetverikov, Denis and Demirer, Mert and Duflo, Esther and Hansen, Christian and Newey, Whitney and Robins, James},
+  journal={The Econometrics Journal},
+  volume={21},
+  number={1},
+  pages={C1--C68},
+  year={2018},
+  doi={10.1111/ectj.12097},
+  note={DML for valid inference with ML nuisance estimation}
+}
+
+@article{sato2024uplift,
+  title={Uplift modeling to identify patients who require extensive catheter ablation procedures among patients with persistent atrial fibrillation},
+  author={Sato, Takahiro and others},
+  journal={Scientific Reports},
+  volume={14},
+  pages={3456},
+  year={2024},
+  doi={10.1038/s41598-024-52976-7},
+  note={Medical uplift modeling example on RCT data}
+}
+
+% ============================================================================
+% POLICY EVALUATION / COUNTERFACTUAL
+% ============================================================================
+
+@article{dudik2014doubly,
+  title={Doubly Robust Policy Evaluation and Optimization},
+  author={Dud{\'\i}k, Miroslav and Erhan, Dumitru and Langford, John and Li, Lihong},
+  journal={Statistical Science},
+  volume={29},
+  number={4},
+  pages={485--511},
+  year={2014},
+  doi={10.1214/14-STS500},
+  note={DR offline policy evaluation for contextual bandits}
+}
+
+@inproceedings{jiang2016doubly,
+  title={Doubly Robust Off-policy Value Evaluation for Reinforcement Learning},
+  author={Jiang, Nan and Li, Lihong},
+  booktitle={International Conference on Machine Learning},
+  pages={652--661},
+  year={2016},
+  organization={PMLR},
+  url={https://proceedings.mlr.press/v48/jiang16.html},
+  note={DR evaluation extended to sequential RL}
+}
+
+% ============================================================================
+% SYNTHETIC CONTROL
+% ============================================================================
+
+@article{abadie2010synthetic,
+  title={Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California's Tobacco Control Program},
+  author={Abadie, Alberto and Diamond, Alexis and Hainmueller, Jens},
+  journal={Journal of the American Statistical Association},
+  volume={105},
+  number={490},
+  pages={493--505},
+  year={2010},
+  doi={10.1198/jasa.2009.ap08746},
+  note={Foundational synthetic control method paper}
+}
+
+@article{clarke2023comparison,
+  title={A comparison of synthetic control approaches for the evaluation of policy interventions using observational data: Evaluating the impact of redesigning urgent and emergency care in Northumberland},
+  author={Clarke, Geraldine M and Pariza, Panagiotis and Wolters, Anneke T},
+  journal={Health Services Research},
+  volume={58},
+  number={3},
+  pages={651--665},
+  year={2023},
+  doi={10.1111/1475-6773.14126},
+  note={SCM comparison in ED/urgent care redesign evaluation}
+}
+
+% ============================================================================
+% PROCESS MINING / SIMULATION
+% ============================================================================
+
+@article{camargo2020automated,
+  title={Automated discovery of business process simulation models from event logs},
+  author={Camargo, Manuel and Dumas, Marlon and Gonz{\'a}lez-Rojas, Oscar},
+  journal={Decision Support Systems},
+  volume={134},
+  pages={113284},
+  year={2020},
+  doi={10.1016/j.dss.2020.113284},
+  note={Event-log-calibrated simulation discovery}
+}
+
+@article{berti2019process,
+  title={Process Mining for Python (PM4Py): Bridging the Gap Between Process- and Data Science},
+  author={Berti, Alessandro and van Zelst, Sebastiaan J and van der Aalst, Wil},
+  journal={arXiv preprint arXiv:1905.06169},
+  year={2019},
+  note={PM4Py library for process mining}
+}
+
+@article{munozgama2022process,
+  title={Process mining for healthcare: Characteristics and challenges},
+  author={Munoz-Gama, Jorge and others},
+  journal={Journal of Biomedical Informatics},
+  volume={127},
+  pages={103994},
+  year={2022},
+  doi={10.1016/j.jbi.2022.103994},
+  note={Comprehensive survey of 200+ healthcare PM papers}
+}
+
+% ============================================================================
+% ED OPERATIONS
+% ============================================================================
+
+@article{hao2025emergency,
+  title={Emergency Care Efficiency vs. Quality: Uncovering Hidden Consequences of Fast-Track Routing Decisions},
+  author={Hao, Shuai and Sun, Zhankun and Xu, Yuqian},
+  journal={Manufacturing \& Service Operations Management},
+  year={2025},
+  doi={10.1287/msom.2022.0440},
+  note={IV + simulation for ED fast-track routing with quality tradeoffs}
+}
+
+% ============================================================================
+% MIMIC DATASETS
+% ============================================================================
+
+@article{johnson2023mimiciv,
+  title={MIMIC-IV, a freely accessible electronic health record dataset},
+  author={Johnson, Alistair EW and others},
+  journal={Scientific Data},
+  volume={10},
+  pages={1},
+  year={2023},
+  doi={10.1038/s41597-022-01899-x},
+  note={MIMIC-IV v3.1 dataset}
+}
+
+@misc{mimiced2022,
+  title={MIMIC-IV-ED: Emergency Department Data},
+  author={Johnson, Alistair and others},
+  year={2022},
+  howpublished={PhysioNet},
+  url={https://physionet.org/content/mimic-iv-ed/},
+  note={425K+ ED stays from Beth Israel Deaconess}
+}
+
+@misc{mimicel2024,
+  title={MIMICEL: MIMIC-IV Emergency Department Event Log},
+  author={Various},
+  year={2024},
+  howpublished={PhysioNet},
+  url={https://physionet.org/content/mimicel/},
+  note={XES event log for process mining, 7.5M events}
+}
+
+@misc{sepsis2016,
+  title={Sepsis Cases - Event Log},
+  author={Mannhardt, Felix},
+  year={2016},
+  howpublished={4TU.ResearchData},
+  doi={10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460},
+  note={1050 cases, 15K events, 16 activities}
+}
+
+% ============================================================================
+% DIGITAL TWINS IN HEALTHCARE
+% ============================================================================
+
+@article{cockrell2024design,
+  title={A design specification for Critical Illness Digital Twins to cure sepsis: responding to the National Academies report},
+  author={Cockrell, R Chase and An, Gary},
+  journal={Frontiers in Digital Health},
+  volume={6},
+  pages={1349595},
+  year={2024},
+  doi={10.3389/fdgth.2024.1349595},
+  note={Mechanistic digital twins for sepsis}
+}
+
+@article{vanhouten2020digitaltwin,
+  title={Development and Verification of a Digital Twin Patient Model to Predict Specific Treatment Response During the First 24 Hours of Sepsis},
+  author={van Houten, Carolyn B and others},
+  journal={Critical Care Medicine},
+  volume={48},
+  number={12},
+  pages={e1258--e1265},
+  year={2020},
+  doi={10.1097/CCM.0000000000004449},
+  note={Physiological digital twin for sepsis treatment response}
+}

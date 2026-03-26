@@ -1,97 +1,116 @@
-# Process-Driven Digital Twin for Healthcare
+# Process-Driven Digital Twins for Emergency Department Operations
 
-Paper submission for **DT4H Workshop** (Digital Twin for Healthcare) at **MICCAI 2026**.
+[![Target](https://img.shields.io/badge/Target-DT4H%20Workshop%20@%20MICCAI%202026-blue)]()
+[![Status](https://img.shields.io/badge/Status-Active%20Research-green)]()
 
-## Overview
+## Research Question
 
-This project explores the construction of digital twins from clinical event logs using process mining techniques. We reproduce baseline results on the Sepsis Cases dataset and extend the approach to object-centric event logs (MIMIC-IV-Ext-CEKG).
+> **Can process-mined event logs serve as the foundation for operational digital twins that enable counterfactual policy evaluation in emergency departments?**
+
+## The Gap
+
+| Existing Work | Limitation |
+|---------------|------------|
+| Process Mining + Healthcare | Descriptive analysis only, no simulation or "what-if" |
+| Healthcare Digital Twins | Physiological models (organ systems), not operational workflows |
+| ED Simulation | Hand-crafted models that don't adapt to data |
+| Causal Inference in Healthcare | No integration with process-level representations |
+
+## Our Approach
+
+We bridge **process mining** and **causal inference** to create data-driven operational digital twins:
+
+```
+Event Log → Process Discovery → Calibrated Simulator → Counterfactual Policy Evaluation
+    │              │                    │                         │
+    │              │                    │                         └─ "What if we routed
+    │              │                    │                             patients differently?"
+    │              │                    └─ Simulation matches
+    │              │                       historical distributions
+    │              └─ Automatic structure
+    │                 learning from data
+    └─ Real clinical workflows
+       (MIMIC-IV, Sepsis cases)
+```
+
+## Current Status
+
+| Phase | Status | Description |
+|-------|--------|-------------|
+| 1. Baseline | 🔄 In Progress | Reproduce Sepsis PM results |
+| 2. Extension | ⏳ Planned | Apply to MIMICEL (425K ED cases) |
+| 3. Causal | ⏳ Planned | Integrate CATE estimation & DR-OPE |
+
+## Quick Start
+
+```bash
+# Setup
+git clone <repo-url> && cd digitaltwin
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# Configure data paths
+cp experiments/.env.example experiments/.env
+# Edit .env with your local paths
+
+# Run analysis
+jupyter notebook experiments/
+```
+
+## Datasets
+
+| Dataset | Cases | Events | Access |
+|---------|-------|--------|--------|
+| [Sepsis Cases](https://data.4tu.nl/datasets/915d2bfb-7e84-49ad-a286-dc35f063a460) | 1,050 | 15K | Public |
+| [MIMICEL](https://physionet.org/content/mimicel/) | 425K | 7.5M | PhysioNet |
+| [MIMIC-IV-Ext-CEKG](https://physionet.org/content/mimic-iv-ext-cekg/) | OCEL | - | PhysioNet |
+
+## Baseline Targets
+
+Reproducing [prior work](https://doi.org/10.1016/j.health.2023.100147) on Sepsis:
+
+| Metric | Inductive Miner | Our Target |
+|--------|-----------------|------------|
+| Fitness | 84.8% | ±2% |
+| Precision | 25.7% | ±2% |
+| Generalization | 90.2% | ±2% |
 
 ## Project Structure
 
 ```
 digitaltwin/
-├── experiments/          # Jupyter notebooks for analysis
-│   ├── 01_sepsis_eda.ipynb
-│   ├── 02_sepsis_discovery.ipynb
-│   ├── 03_sepsis_conformance.ipynb
-│   ├── 04_sepsis_performance.ipynb
-│   ├── 05_sepsis_twin.ipynb
-│   └── utils/
-├── paper/                # LaTeX source for the paper
-├── figures/              # Generated figures for the paper
-└── results/              # Output metrics and data
+├── docs/
+│   └── RESEARCH_DESIGN.md   # Full research design & open tasks
+├── experiments/              # Analysis code (notebooks not committed)
+│   ├── config.py             # Path configuration
+│   └── .env.example          # Template for local paths
+├── paper/
+│   ├── references.bib        # 15+ key references
+│   └── *.tex                 # MICCAI template
+├── figures/                  # Generated visualizations
+└── results/                  # Output metrics (CSV)
 ```
 
-## Datasets
+## Contributing
 
-### 1. Sepsis Cases Event Log (Primary)
+See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Open research tasks
+- Setup instructions
+- Workflow guidelines
 
-Real-life event log from a hospital ERP system containing ~1,000 sepsis patient cases.
+**Looking for collaborators with expertise in**:
+- Process Mining (PM4Py, conformance checking)
+- Causal Inference (CATE, doubly robust methods)
+- Healthcare Simulation (DES, calibration)
 
-- **Cases**: 1,050
-- **Events**: 15,214
-- **Activities**: 16
-- **Attributes**: 39 (including SIRS criteria, CRP, Lactic Acid)
+## Key References
 
-**Download**: [4TU.ResearchData](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639)
+- Camargo et al. 2020 — [Event-log-calibrated simulation](https://doi.org/10.1016/j.dss.2020.113284)
+- Wager & Athey 2018 — [Causal forests](https://doi.org/10.1080/01621459.2017.1319839)
+- Hao et al. 2025 — [ED fast-track routing](https://doi.org/10.1287/msom.2022.0440)
+- Munoz-Gama et al. 2022 — [Healthcare PM survey](https://doi.org/10.1016/j.jbi.2022.103994)
 
-**Citation**:
-```
-Mannhardt, F. (2016). Sepsis Cases - Event Log.
-Eindhoven University of Technology. Dataset.
-https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460
-```
-
-### 2. MIMIC-IV-Ext-CEKG (Extension)
-
-Object-centric event log derived from MIMIC-IV with ICD-10 and SNOMED-CT mappings.
-
-- **Format**: OCEL 2.0
-- **Object types**: Patient, Admission, Diagnosis, Procedure, Medication
-
-**Download**: [PhysioNet](https://physionet.org/content/mimic-iv-ext-cekg/) (requires CITI training)
-
-### 3. MIMIC-IV-ED Demo (Fallback)
-
-Demo subset of MIMIC-IV Emergency Department data.
-
-**Download**: [PhysioNet](https://physionet.org/content/mimic-iv-ed/2.2/)
-
-## Installation
-
-```bash
-# Create virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-
-# Install dependencies
-pip install pm4py pandas numpy matplotlib jupyter
-```
-
-## Usage
-
-```bash
-# Start Jupyter
-jupyter notebook experiments/
-
-# Or run individual notebooks
-jupyter notebook experiments/01_sepsis_eda.ipynb
-```
-
-## Baseline Targets
-
-From [Optimizing sepsis care through heuristics methods in process mining](https://www.sciencedirect.com/science/article/pii/S2772442523000540):
-
-| Model | Fitness | Precision | Simplicity | Generalization |
-|-------|---------|-----------|------------|----------------|
-| Inductive Miner | 84.8% | 25.7% | 62.2% | 90.2% |
-| Systematic (expert) | 97.8% | 40.4% | 77.7% | 80.2% |
-
-## References
-
-- Mannhardt, F. (2016). Sepsis Cases - Event Log.
-- PM4Py: Process Mining for Python. https://pm4py.fit.fraunhofer.de/
-- Munoz-Gama et al. (2022). Process mining for healthcare: Characteristics and challenges. J Biomedical Informatics.
+See [paper/references.bib](paper/references.bib) for full bibliography.
 
 ## License
 

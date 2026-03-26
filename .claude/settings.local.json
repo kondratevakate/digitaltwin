@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Projects/atelic/data/process/**)",
+      "WebSearch",
+      "Bash(pip show:*)",
+      "Bash(pip list:*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \":*)",
+      "Bash(curl -L \"https://data.4tu.nl/file/33632f3c-5c81-4e88-8db5-b2e5c3939bc8/3dab3a52-e015-4ab4-9922-71329adb586d\" -o \"C:/Projects/atelic/data/process/sepsis/Sepsis_Cases_Event_Log.xes.gz\")",
+      "Bash(git lfs:*)",
+      "Bash(nbstripout --install --attributes .gitattributes)",
+      "Bash(dvc version:*)"
+    ]
+  }
+}

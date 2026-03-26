@@ -1,0 +1,2 @@
+n_cases,n_events,n_activities,n_variants,avg_events_per_case,median_duration_days,mean_duration_days,dfg_edges
+1050,15214,16,846,14.48952380952381,5.343385416666667,28.469341236772486,115

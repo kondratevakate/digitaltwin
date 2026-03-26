@@ -1,0 +1,21 @@
+# Core dependencies
+pm4py>=2.7.0
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scipy>=1.10.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Causal inference (Phase 3)
+# econml>=0.14.0
+# causalml>=0.13.0
+# doubleml>=0.7.0
+
+# Optional: faster XES parsing
+# r4pm>=0.1.0

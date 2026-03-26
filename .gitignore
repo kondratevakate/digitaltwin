@@ -1,0 +1,29 @@
+# Environment files with local paths (contain local machine paths)
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (too large, download separately)
+data/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
